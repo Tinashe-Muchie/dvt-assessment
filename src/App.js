@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.scss';
+import GlobalContext from './Context/GlobalContext';
+import Details from './components/Details/Details';
+import Home from './components/Home/Home';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <GlobalContext>
+        <Helmet>
+          <style>{'body {background-color: #0B0C10}'}</style>
+        </Helmet>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/details">
+              <Details />
+            </Route>
+          </Switch>
+        </Router>
+      </GlobalContext>
     );
   }
 }
