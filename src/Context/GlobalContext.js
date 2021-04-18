@@ -27,9 +27,6 @@ function GlobalContext ({children}){
       setLoading(false);
     })
   }, [trackName])
-  console.log(tracks);
-  const {data} = tracks;
-  console.log(data)
 
   const value = {
     search,

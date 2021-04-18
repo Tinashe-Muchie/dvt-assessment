@@ -18,8 +18,6 @@ function Details () {
     .catch(error => { console.error(error); })
   }, [])
 
-  console.log(artist)
-
   useEffect(()=> {
     fetch(`${artist.tracklist}`, {
       "method": "GET"
@@ -30,7 +28,6 @@ function Details () {
   }, [artist])
 
   const { data } = tracklist;
-  if (data) console.log(data.slice(0, 5))
 
   return (
     <Container>
